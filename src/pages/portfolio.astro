@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import PortfolioGrid from '../components/PortfolioGrid.astro';
+---
+
+<BaseLayout 
+  title="Portfolio - Interior & Architectural Photography" 
+  description="Explore my portfolio of interior design and architectural photography showcasing elegant spaces and sophisticated design."
+>
+  <main class="portfolio-page">
+    <Navigation />
+    
+    <section class="portfolio-header">
+      <div class="container">
+        <h1 class="portfolio-title">Portfolio</h1>
+        <p class="portfolio-subtitle">
+          A curated collection of interior and architectural photography, 
+          capturing the essence of design through light and composition.
+        </p>
+      </div>
+    </section>
+
+    <PortfolioGrid />
+  </main>
+</BaseLayout>
+
+<style>
+  .portfolio-page {
+    min-height: 100vh;
+    padding-top: 6rem;
+  }
+
+  .portfolio-header {
+    padding: 2rem 0 1rem;
+    text-align: center;
+  }
+
+  .portfolio-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .portfolio-subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    opacity: 0.8;
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .portfolio-page {
+      padding-top: 4rem;
+    }
+
+    .portfolio-header {
+      padding: 1rem 0 0.5rem;
+    }
+  }
+
+  /* Smooth animations */
+  .portfolio-title,
+  .portfolio-subtitle {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  .portfolio-subtitle {
+    animation-delay: 0.2s;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .portfolio-title,
+    .portfolio-subtitle {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>

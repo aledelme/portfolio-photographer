@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<BaseLayout 
+  title="Contact - Interior & Architectural Photography" 
+  description="Get in touch to discuss your interior design or architectural photography project. Let's create something beautiful together."
+>
+  <main class="contact-page">
+    <Navigation />
+    
+    <section class="contact-header">
+      <div class="container">
+        <h1 class="contact-title">Let's Work Together</h1>
+        <p class="contact-subtitle">
+          I'd love to hear about your project and discuss how we can create 
+          compelling visual stories for your space.
+        </p>
+      </div>
+    </section>
+
+    <ContactForm />
+  </main>
+</BaseLayout>
+
+<style>
+  .contact-page {
+    min-height: 100vh;
+    padding-top: 6rem;
+  }
+
+  .contact-header {
+    padding: 2rem 0 1rem;
+    text-align: center;
+  }
+
+  .contact-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .contact-subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    opacity: 0.8;
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .contact-page {
+      padding-top: 4rem;
+    }
+
+    .contact-header {
+      padding: 1rem 0 0.5rem;
+    }
+  }
+
+  /* Smooth animations */
+  .contact-title,
+  .contact-subtitle {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  .contact-subtitle {
+    animation-delay: 0.2s;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .contact-title,
+    .contact-subtitle {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>

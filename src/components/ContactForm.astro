@@ -1,0 +1,415 @@
+---
+// Contact form component
+---
+
+<section class="contact-form-section">
+  <div class="container">
+    <form class="contact-form" name="contact" method="POST" data-netlify="true">
+      <h2 class="form-title">Get In Touch</h2>
+      
+      <div class="form-group">
+        <label for="name" class="form-label">Name</label>
+        <input 
+          type="text" 
+          id="name" 
+          name="name" 
+          class="form-input" 
+          required 
+          autocomplete="name"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          class="form-input" 
+          required 
+          autocomplete="email"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="message" class="form-label">Message</label>
+        <textarea 
+          id="message" 
+          name="message" 
+          class="form-textarea" 
+          rows="5" 
+          required
+        ></textarea>
+      </div>
+
+      <button type="submit" class="form-submit">
+        Send Message
+      </button>
+    </form>
+
+    <!-- Contact Information -->
+    <div class="contact-info">
+      <h3 class="contact-info-title">Contact Information</h3>
+      
+      <div class="contact-details">
+        <div class="contact-item">
+          <span class="contact-label">Email</span>
+          <a href="mailto:hello@photographer.com" class="contact-link">
+            hello@photographer.com
+          </a>
+        </div>
+
+        <div class="contact-item">
+          <span class="contact-label">Phone</span>
+          <a href="tel:+1234567890" class="contact-link">
+            +1 (234) 567-890
+          </a>
+        </div>
+
+        <div class="contact-item">
+          <span class="contact-label">Location</span>
+          <span class="contact-text">New York, NY</span>
+        </div>
+      </div>
+
+      <!-- Social Links -->
+      <div class="social-links">
+        <h4 class="social-title">Follow My Work</h4>
+        <div class="social-list">
+          <a href="https://instagram.com" class="social-link" target="_blank" rel="noopener noreferrer">
+            Instagram
+          </a>
+          <a href="https://linkedin.com" class="social-link" target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
+          <a href="https://behance.net" class="social-link" target="_blank" rel="noopener noreferrer">
+            Behance
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-form-section {
+    padding: 4rem 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  /* Form Styles */
+  .contact-form {
+    background: transparent;
+  }
+
+  .form-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 300;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+  }
+
+  .form-group {
+    margin-bottom: 2rem;
+  }
+
+  .form-label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .form-input,
+  .form-textarea {
+    width: 100%;
+    padding: 1rem 0;
+    border: none;
+    border-bottom: 1px solid #000;
+    background: transparent;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 300;
+    color: #000;
+    transition: border-color 0.3s ease;
+    outline: none;
+  }
+
+  .form-input:focus,
+  .form-textarea:focus {
+    border-bottom-color: #666;
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .form-submit {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 150px;
+  }
+
+  .form-submit:hover {
+    background: #333;
+    transform: translateY(-1px);
+  }
+
+  .form-submit:active {
+    transform: translateY(0);
+  }
+
+  /* Contact Info Styles */
+  .contact-info {
+    padding-left: 2rem;
+  }
+
+  .contact-info-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 300;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+  }
+
+  .contact-details {
+    margin-bottom: 3rem;
+  }
+
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-label {
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.25rem;
+    opacity: 0.7;
+  }
+
+  .contact-link {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #000;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .contact-link:hover {
+    opacity: 0.7;
+  }
+
+  .contact-text {
+    font-size: 1.1rem;
+    font-weight: 300;
+  }
+
+  /* Social Links */
+  .social-title {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  .social-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .social-link {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #000;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+    display: inline-block;
+    position: relative;
+  }
+
+  .social-link:hover {
+    opacity: 0.7;
+  }
+
+  .social-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: #000;
+    transition: width 0.3s ease;
+  }
+
+  .social-link:hover::after {
+    width: 100%;
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .contact-form-section {
+      padding: 2rem 0;
+    }
+
+    .container {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .contact-info {
+      padding-left: 0;
+    }
+
+    .form-submit {
+      width: 100%;
+    }
+
+    .social-list {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+  }
+
+  /* Form validation styles */
+  .form-input:invalid,
+  .form-textarea:invalid {
+    border-bottom-color: #000;
+  }
+
+  .form-input:valid,
+  .form-textarea:valid {
+    border-bottom-color: #000;
+  }
+
+  /* Loading state for form submission */
+  .form-submit.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  .form-submit.loading::after {
+    content: '...';
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('.contact-form') as HTMLFormElement;
+    const submitButton = form?.querySelector('.form-submit') as HTMLButtonElement;
+
+    if (!form || !submitButton) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Add loading state
+      submitButton.classList.add('loading');
+      submitButton.disabled = true;
+      
+      try {
+        // Simulate form submission (replace with actual submission logic)
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        // Show success message
+        showMessage('Thank you! Your message has been sent.', 'success');
+        form.reset();
+        
+      } catch (error) {
+        // Show error message
+        showMessage('Sorry, there was an error sending your message. Please try again.', 'error');
+        console.error('Form submission error:', error);
+        
+      } finally {
+        // Remove loading state
+        submitButton.classList.remove('loading');
+        submitButton.disabled = false;
+      }
+    });
+
+    function showMessage(text: string, type: 'success' | 'error') {
+      // Create message element
+      const message = document.createElement('div');
+      message.className = `form-message ${type}`;
+      message.textContent = text;
+      
+      // Style the message
+      Object.assign(message.style, {
+        position: 'fixed',
+        top: '2rem',
+        right: '2rem',
+        background: type === 'success' ? '#000' : '#333',
+        color: '#fff',
+        padding: '1rem 1.5rem',
+        borderRadius: '2px',
+        fontSize: '0.9rem',
+        zIndex: '9999',
+        opacity: '0',
+        transform: 'translateY(-10px)',
+        transition: 'all 0.3s ease'
+      });
+
+      document.body.appendChild(message);
+
+      // Animate in
+      requestAnimationFrame(() => {
+        message.style.opacity = '1';
+        message.style.transform = 'translateY(0)';
+      });
+
+      // Remove after 5 seconds
+      setTimeout(() => {
+        message.style.opacity = '0';
+        message.style.transform = 'translateY(-10px)';
+        setTimeout(() => {
+          document.body.removeChild(message);
+        }, 300);
+      }, 5000);
+    }
+
+    // Real-time form validation
+    const inputs = form.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+      input.addEventListener('blur', validateField);
+      input.addEventListener('input', clearValidation);
+    });
+
+    function validateField(e: Event) {
+      const field = e.target as HTMLInputElement | HTMLTextAreaElement;
+      if (!field.validity.valid) {
+        field.style.borderBottomColor = '#666';
+      }
+    }
+
+    function clearValidation(e: Event) {
+      const field = e.target as HTMLInputElement | HTMLTextAreaElement;
+      field.style.borderBottomColor = '';
+    }
+  });
+</script>
