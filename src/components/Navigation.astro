@@ -4,8 +4,8 @@
 
 <nav class="navigation">
   <!-- Hamburger Menu Button -->
-  <button 
-    class="menu-toggle" 
+  <button
+    class="menu-toggle"
     aria-label="Toggle navigation menu"
     aria-expanded="false"
     type="button"
@@ -22,7 +22,7 @@
         <span class="close-line"></span>
         <span class="close-line"></span>
       </button>
-      
+
       <ul class="menu-links">
         <li><a href="/" class="menu-link">Home</a></li>
         <li><a href="/about" class="menu-link">About</a></li>
@@ -156,14 +156,15 @@
   }
 
   /* Active menu state - hamburger animation */
+  .menu-toggle.active {
+    pointer-events: none;
+  }
   .menu-toggle.active .hamburger:nth-child(1) {
     transform: rotate(45deg) translate(6px, 6px);
   }
-
   .menu-toggle.active .hamburger:nth-child(2) {
     opacity: 0;
   }
-
   .menu-toggle.active .hamburger:nth-child(3) {
     transform: rotate(-45deg) translate(6px, -6px);
   }
@@ -191,44 +192,46 @@
 </style>
 
 <script>
-  // Navigation functionality
-  document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const menuOverlay = document.querySelector('.menu-overlay');
-    const menuClose = document.querySelector('.menu-close');
-    const menuLinks = document.querySelectorAll('.menu-link');
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const menuOverlay = document.querySelector(".menu-overlay");
+    const menuClose = document.querySelector(".menu-close");
+    const menuLinks = document.querySelectorAll(".menu-link");
 
     function openMenu() {
-      menuToggle?.classList.add('active');
-      menuOverlay?.classList.add('active');
-      document.body.style.overflow = 'hidden';
+      menuToggle?.classList.add("active");
+      menuOverlay?.classList.add("active");
+      document.body.style.overflow = "hidden";
     }
 
     function closeMenu() {
-      menuToggle?.classList.remove('active');
-      menuOverlay?.classList.remove('active');
-      document.body.style.overflow = '';
+      menuToggle?.classList.remove("active");
+      menuOverlay?.classList.remove("active");
+      document.body.style.overflow = "";
     }
 
-    // Event listeners
-    menuToggle?.addEventListener('click', openMenu);
-    menuClose?.addEventListener('click', closeMenu);
+    menuToggle?.addEventListener("click", openMenu);
+    menuClose?.addEventListener("click", closeMenu);
 
     // Close menu when clicking on a link
-    menuLinks.forEach(link => {
-      link.addEventListener('click', closeMenu);
-    });
+    // menuLinks.forEach(link => {
+    //   link.addEventListener('click', closeMenu);
+    // });
 
     // Close menu when clicking on overlay background
-    menuOverlay?.addEventListener('click', (e) => {
-      if (e.target === menuOverlay) {
+    menuOverlay?.addEventListener("click", (e) => {
+      const target = e.target as HTMLElement;
+      if (target.classList.contains("menu-overlay")) {
         closeMenu();
       }
     });
 
-    // Close menu with Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
+    menuLinks.forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
         closeMenu();
       }
     });

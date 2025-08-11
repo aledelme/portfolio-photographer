@@ -1,21 +1,21 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Navigation from '../components/Navigation.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navigation from "../components/Navigation.astro";
 ---
 
-<BaseLayout 
-  title="About - Interior & Architectural Photography" 
+<BaseLayout
+  title="About - Interior & Architectural Photography"
   description="Learn about my journey as a photographer and communications specialist focusing on interior design and architecture."
 >
   <main class="about-page">
     <Navigation />
-    
+
     <section class="about-content">
       <div class="container">
         <div class="about-grid">
           <!-- Portrait Image -->
           <div class="portrait-container">
-            <img 
+            <img
               src="https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=600&h=800&fit=crop&crop=face"
               alt="Professional portrait of photographer"
               class="portrait-image"
@@ -25,26 +25,42 @@ import Navigation from '../components/Navigation.astro';
           <!-- About Text -->
           <div class="about-text">
             <h1 class="about-title">About Me</h1>
-            
+
             <div class="text-content">
               <p class="intro-text">
-                I am a passionate photographer and communications specialist with a deep appreciation for the intersection of design, architecture, and human experience.
+                I am a passionate photographer and communications specialist
+                with a deep appreciation for the intersection of design,
+                architecture, and human experience.
               </p>
 
               <p>
-                My work focuses on capturing the essence of interior spaces and architectural forms, revealing the stories they tell through light, shadow, and composition. With over a decade of experience in both photography and communications, I bring a unique perspective to each project.
+                My work focuses on capturing the essence of interior spaces and
+                architectural forms, revealing the stories they tell through
+                light, shadow, and composition. With over a decade of experience
+                in both photography and communications, I bring a unique
+                perspective to each project.
               </p>
 
               <p>
-                I believe that great architecture and interior design have the power to transform how we feel and interact with our environments. My photography seeks to document not just the physical spaces, but the emotions and experiences they create.
+                I believe that great architecture and interior design have the
+                power to transform how we feel and interact with our
+                environments. My photography seeks to document not just the
+                physical spaces, but the emotions and experiences they create.
               </p>
 
               <p>
-                Based in New York, I work with architects, interior designers, and property developers to create compelling visual narratives that showcase their work in its best light. Every space has a unique character, and my goal is to reveal that personality through thoughtful, considered photography.
+                Based in New York, I work with architects, interior designers,
+                and property developers to create compelling visual narratives
+                that showcase their work in its best light. Every space has a
+                unique character, and my goal is to reveal that personality
+                through thoughtful, considered photography.
               </p>
 
               <p>
-                When I'm not behind the camera, I enjoy exploring the city's diverse architectural landscape, from historic brownstones to cutting-edge contemporary buildings. This ongoing exploration continues to inform and inspire my work.
+                When I'm not behind the camera, I enjoy exploring the city's
+                diverse architectural landscape, from historic brownstones to
+                cutting-edge contemporary buildings. This ongoing exploration
+                continues to inform and inspire my work.
               </p>
             </div>
 
@@ -198,7 +214,7 @@ import Navigation from '../components/Navigation.astro';
   }
 
   .recognition-list li::before {
-    content: '•';
+    content: "•";
     position: absolute;
     left: 0;
     top: 0.75rem;
@@ -259,13 +275,27 @@ import Navigation from '../components/Navigation.astro';
     animation: fadeInUp 0.6s ease forwards;
   }
 
-  .text-content p:nth-child(1) { animation-delay: 0.1s; }
-  .text-content p:nth-child(2) { animation-delay: 0.2s; }
-  .text-content p:nth-child(3) { animation-delay: 0.3s; }
-  .text-content p:nth-child(4) { animation-delay: 0.4s; }
-  .text-content p:nth-child(5) { animation-delay: 0.5s; }
-  .services { animation-delay: 0.6s; }
-  .recognition { animation-delay: 0.7s; }
+  .text-content p:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .text-content p:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .text-content p:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  .text-content p:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+  .text-content p:nth-child(5) {
+    animation-delay: 0.5s;
+  }
+  .services {
+    animation-delay: 0.6s;
+  }
+  .recognition {
+    animation-delay: 0.7s;
+  }
 
   @keyframes fadeInUp {
     to {

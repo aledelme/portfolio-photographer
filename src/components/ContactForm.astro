@@ -6,51 +6,48 @@
   <div class="container">
     <form class="contact-form" name="contact" method="POST" data-netlify="true">
       <h2 class="form-title">Get In Touch</h2>
-      
+
       <div class="form-group">
         <label for="name" class="form-label">Name</label>
-        <input 
-          type="text" 
-          id="name" 
-          name="name" 
-          class="form-input" 
-          required 
+        <input
+          type="text"
+          id="name"
+          name="name"
+          class="form-input"
+          required
           autocomplete="name"
         />
       </div>
 
       <div class="form-group">
         <label for="email" class="form-label">Email</label>
-        <input 
-          type="email" 
-          id="email" 
-          name="email" 
-          class="form-input" 
-          required 
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="form-input"
+          required
           autocomplete="email"
         />
       </div>
 
       <div class="form-group">
         <label for="message" class="form-label">Message</label>
-        <textarea 
-          id="message" 
-          name="message" 
-          class="form-textarea" 
-          rows="5" 
-          required
-        ></textarea>
+        <textarea
+          id="message"
+          name="message"
+          class="form-textarea"
+          rows="5"
+          required></textarea>
       </div>
 
-      <button type="submit" class="form-submit">
-        Send Message
-      </button>
+      <button type="submit" class="form-submit"> Send Message </button>
     </form>
 
     <!-- Contact Information -->
     <div class="contact-info">
       <h3 class="contact-info-title">Contact Information</h3>
-      
+
       <div class="contact-details">
         <div class="contact-item">
           <span class="contact-label">Email</span>
@@ -61,9 +58,7 @@
 
         <div class="contact-item">
           <span class="contact-label">Phone</span>
-          <a href="tel:+1234567890" class="contact-link">
-            +1 (234) 567-890
-          </a>
+          <a href="tel:+1234567890" class="contact-link"> +1 (234) 567-890 </a>
         </div>
 
         <div class="contact-item">
@@ -76,13 +71,28 @@
       <div class="social-links">
         <h4 class="social-title">Follow My Work</h4>
         <div class="social-list">
-          <a href="https://instagram.com" class="social-link" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://instagram.com"
+            class="social-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Instagram
           </a>
-          <a href="https://linkedin.com" class="social-link" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://linkedin.com"
+            class="social-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             LinkedIn
           </a>
-          <a href="https://behance.net" class="social-link" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://behance.net"
+            class="social-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Behance
           </a>
         </div>
@@ -257,7 +267,7 @@
   }
 
   .social-link::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 0;
     height: 1px;
@@ -315,78 +325,81 @@
   }
 
   .form-submit.loading::after {
-    content: '...';
+    content: "...";
   }
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector('.contact-form') as HTMLFormElement;
-    const submitButton = form?.querySelector('.form-submit') as HTMLButtonElement;
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector(".contact-form") as HTMLFormElement;
+    const submitButton = form?.querySelector(
+      ".form-submit",
+    ) as HTMLButtonElement;
 
     if (!form || !submitButton) return;
 
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      
+
       // Add loading state
-      submitButton.classList.add('loading');
+      submitButton.classList.add("loading");
       submitButton.disabled = true;
-      
+
       try {
         // Simulate form submission (replace with actual submission logic)
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+
         // Show success message
-        showMessage('Thank you! Your message has been sent.', 'success');
+        showMessage("Thank you! Your message has been sent.", "success");
         form.reset();
-        
       } catch (error) {
         // Show error message
-        showMessage('Sorry, there was an error sending your message. Please try again.', 'error');
-        console.error('Form submission error:', error);
-        
+        showMessage(
+          "Sorry, there was an error sending your message. Please try again.",
+          "error",
+        );
+        console.error("Form submission error:", error);
       } finally {
         // Remove loading state
-        submitButton.classList.remove('loading');
+        submitButton.classList.remove("loading");
         submitButton.disabled = false;
       }
     });
 
-    function showMessage(text: string, type: 'success' | 'error') {
+    function showMessage(text: string, type: "success" | "error") {
       // Create message element
-      const message = document.createElement('div');
+      const message = document.createElement("div");
       message.className = `form-message ${type}`;
       message.textContent = text;
-      
+
       // Style the message
       Object.assign(message.style, {
-        position: 'fixed',
-        top: '2rem',
-        right: '2rem',
-        background: type === 'success' ? '#000' : '#333',
-        color: '#fff',
-        padding: '1rem 1.5rem',
-        borderRadius: '2px',
-        fontSize: '0.9rem',
-        zIndex: '9999',
-        opacity: '0',
-        transform: 'translateY(-10px)',
-        transition: 'all 0.3s ease'
+        position: "fixed",
+        top: "2rem",
+        right: "2rem",
+        background: type === "success" ? "#000" : "#333",
+        color: "#fff",
+        padding: "1rem 1.5rem",
+        borderRadius: "2px",
+        fontSize: "0.9rem",
+        zIndex: "9999",
+        opacity: "0",
+        transform: "translateY(-10px)",
+        transition: "all 0.3s ease",
       });
 
       document.body.appendChild(message);
 
       // Animate in
       requestAnimationFrame(() => {
-        message.style.opacity = '1';
-        message.style.transform = 'translateY(0)';
+        message.style.opacity = "1";
+        message.style.transform = "translateY(0)";
       });
 
       // Remove after 5 seconds
       setTimeout(() => {
-        message.style.opacity = '0';
-        message.style.transform = 'translateY(-10px)';
+        message.style.opacity = "0";
+        message.style.transform = "translateY(-10px)";
         setTimeout(() => {
           document.body.removeChild(message);
         }, 300);
@@ -394,22 +407,22 @@
     }
 
     // Real-time form validation
-    const inputs = form.querySelectorAll('input, textarea');
-    inputs.forEach(input => {
-      input.addEventListener('blur', validateField);
-      input.addEventListener('input', clearValidation);
+    const inputs = form.querySelectorAll("input, textarea");
+    inputs.forEach((input) => {
+      input.addEventListener("blur", validateField);
+      input.addEventListener("input", clearValidation);
     });
 
     function validateField(e: Event) {
       const field = e.target as HTMLInputElement | HTMLTextAreaElement;
       if (!field.validity.valid) {
-        field.style.borderBottomColor = '#666';
+        field.style.borderBottomColor = "#666";
       }
     }
 
     function clearValidation(e: Event) {
       const field = e.target as HTMLInputElement | HTMLTextAreaElement;
-      field.style.borderBottomColor = '';
+      field.style.borderBottomColor = "";
     }
   });
 </script>

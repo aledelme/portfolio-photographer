@@ -2,6 +2,7 @@
   "name": "portfolio-photographer",
   "type": "module",
   "version": "0.0.1",
+  "license": "MIT",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -12,5 +13,9 @@
     "@astrojs/image": "^0.18.0",
     "astro": "^5.12.9",
     "sharp": "^0.34.3"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }
