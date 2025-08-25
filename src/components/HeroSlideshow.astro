@@ -1,55 +1,52 @@
 ---
 // Hero slideshow component for the homepage
 const images = [
-  {
-    src: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=1200&h=800&fit=crop",
-    alt: "Minimalist architectural interior with clean lines"
-  },
-  {
-    src: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=1200&h=800&fit=crop",
-    alt: "Modern architectural space with geometric shadows"
-  },
-  {
-    src: "https://images.unsplash.com/photo-1571055107559-3e67626fa8be?q=80&w=1200&h=800&fit=crop",
-    alt: "Contemporary interior design with natural lighting"
-  },
-  {
-    src: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&h=800&fit=crop",
-    alt: "Architectural detail with dramatic lighting"
-  },
-  {
-    src: "https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?q=80&w=1200&h=800&fit=crop",
-    alt: "Minimalist interior with artistic elements"
-  }
+  "/images/home/1.jpeg",
+  "/images/home/5.jpeg",
+  "/images/home/10.jpeg",
+  "/images/home/15.jpeg",
+  "/images/home/20.jpeg",
+  "/images/home/25.jpeg",
+  "/images/home/30.jpeg",
+  "/images/home/35.jpeg",
+  "/images/home/40.jpeg",
+  "/images/home/45.jpeg",
+  "/images/home/50.jpeg",
+  "/images/home/55.jpeg",
+  "/images/home/60.jpeg",
+  "/images/home/65.jpeg",
+  "/images/home/70.jpeg",
+  "/images/home/75.jpeg",
+  "/images/home/80.jpeg",
 ];
 ---
 
 <section class="hero-slideshow">
   <div class="slideshow-container">
-    {images.map((image, index) => (
-      <div 
-        class={`slide ${index === 0 ? 'active' : ''}`}
-        data-slide={index}
-      >
-        <img 
-          src={image.src}
-          alt={image.alt}
-          loading={index === 0 ? "eager" : "lazy"}
-        />
-      </div>
-    ))}
+    {
+      images.map((image, index) => (
+        <div class={`slide ${index === 0 ? "active" : ""}`} data-slide={index}>
+          <img
+            src={image}
+            alt={`Home Image ${index}`}
+            loading={index === 0 ? "eager" : "lazy"}
+          />
+        </div>
+      ))
+    }
   </div>
-  
+
   <!-- Slide indicators -->
   <div class="slide-indicators">
-    {images.map((_, index) => (
-      <button 
-        class={`indicator ${index === 0 ? 'active' : ''}`}
-        data-slide={index}
-        aria-label={`Go to slide ${index + 1}`}
-      >
-      </button>
-    ))}
+    {
+      images.map((_, index) => (
+        <button
+          class={`indicator ${index === 0 ? "active" : ""}`}
+          data-slide={index}
+          aria-label={`Go to slide ${index + 1}`}
+        />
+      ))
+    }
   </div>
 </section>
 
@@ -59,7 +56,7 @@ const images = [
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    /* padding: 80px; */
+    /* padding: 6vh; */
   }
 
   .slideshow-container {
@@ -141,20 +138,20 @@ const images = [
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const slides = document.querySelectorAll('.slide');
-    const indicators = document.querySelectorAll('.indicator');
+  document.addEventListener("DOMContentLoaded", () => {
+    const slides = document.querySelectorAll(".slide");
+    const indicators = document.querySelectorAll(".indicator");
     let currentSlide = 0;
     let slideInterval: NodeJS.Timeout;
 
     function showSlide(index: number) {
       // Remove active class from all slides and indicators
-      slides.forEach(slide => slide.classList.remove('active'));
-      indicators.forEach(indicator => indicator.classList.remove('active'));
+      slides.forEach((slide) => slide.classList.remove("active"));
+      indicators.forEach((indicator) => indicator.classList.remove("active"));
 
       // Add active class to current slide and indicator
-      slides[index]?.classList.add('active');
-      indicators[index]?.classList.add('active');
+      slides[index]?.classList.add("active");
+      indicators[index]?.classList.add("active");
 
       currentSlide = index;
     }
@@ -177,7 +174,7 @@ const images = [
 
     // Add click handlers to indicators
     indicators.forEach((indicator, index) => {
-      indicator.addEventListener('click', () => {
+      indicator.addEventListener("click", () => {
         showSlide(index);
         stopSlideshow();
         startSlideshow(); // Restart timer
@@ -185,12 +182,12 @@ const images = [
     });
 
     // Pause slideshow on hover
-    const slideshowContainer = document.querySelector('.slideshow-container');
-    slideshowContainer?.addEventListener('mouseenter', stopSlideshow);
-    slideshowContainer?.addEventListener('mouseleave', startSlideshow);
+    const slideshowContainer = document.querySelector(".slideshow-container");
+    slideshowContainer?.addEventListener("mouseenter", stopSlideshow);
+    slideshowContainer?.addEventListener("mouseleave", startSlideshow);
 
     // Pause slideshow when page is not visible
-    document.addEventListener('visibilitychange', () => {
+    document.addEventListener("visibilitychange", () => {
       if (document.hidden) {
         stopSlideshow();
       } else {
@@ -199,13 +196,13 @@ const images = [
     });
 
     // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') {
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") {
         const prev = currentSlide === 0 ? slides.length - 1 : currentSlide - 1;
         showSlide(prev);
         stopSlideshow();
         startSlideshow();
-      } else if (e.key === 'ArrowRight') {
+      } else if (e.key === "ArrowRight") {
         nextSlide();
         stopSlideshow();
         startSlideshow();

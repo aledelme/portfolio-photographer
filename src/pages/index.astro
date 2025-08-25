@@ -1,15 +1,17 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Navigation from '../components/Navigation.astro';
-import HeroSlideshow from '../components/HeroSlideshow.astro';
-import InstagramLink from '../components/InstagramLink.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navigation from "../components/Navigation.astro";
+import HeroSlideshow from "../components/HeroSlideshow.astro";
+import InstagramLink from "../components/InstagramLink.astro";
+import HeroName from "../components/HeroName.astro";
 ---
 
 <BaseLayout title="Portfolio - Interior & Architectural Photography">
   <main class="homepage">
     <Navigation />
+    <HeroName />
     <HeroSlideshow />
-    <InstagramLink />
+    <!-- <InstagramLink /> -->
   </main>
 </BaseLayout>
 
