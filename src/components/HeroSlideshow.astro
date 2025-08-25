@@ -1,24 +1,12 @@
 ---
+import { Image } from "astro:assets";
+
 // Hero slideshow component for the homepage
-const images = [
-  "/images/home/1.jpeg",
-  "/images/home/5.jpeg",
-  "/images/home/10.jpeg",
-  "/images/home/15.jpeg",
-  "/images/home/20.jpeg",
-  "/images/home/25.jpeg",
-  "/images/home/30.jpeg",
-  "/images/home/35.jpeg",
-  "/images/home/40.jpeg",
-  "/images/home/45.jpeg",
-  "/images/home/50.jpeg",
-  "/images/home/55.jpeg",
-  "/images/home/60.jpeg",
-  "/images/home/65.jpeg",
-  "/images/home/70.jpeg",
-  "/images/home/75.jpeg",
-  "/images/home/80.jpeg",
-];
+const imageImports = import.meta.glob<{ default: string }>(
+  "../images/home/*.jpeg",
+  { eager: true },
+);
+const images = Object.values(imageImports);
 ---
 
 <section class="hero-slideshow">
@@ -26,10 +14,15 @@ const images = [
     {
       images.map((image, index) => (
         <div class={`slide ${index === 0 ? "active" : ""}`} data-slide={index}>
-          <img
-            src={image}
+          <Image
+            src={image.default}
             alt={`Home Image ${index}`}
+            width={1200}
+            height={675}
+            format="webp"
             loading={index === 0 ? "eager" : "lazy"}
+            style="width:100%;height:100%;object-fit:cover;object-position:center;filter:grayscale(100%) contrast(1.1);"
+            quality={70}
           />
         </div>
       ))
