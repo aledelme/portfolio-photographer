@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 
 // Hero slideshow component for the homepage
-const imageImports = import.meta.glob<{ default: string }>(
+const imageImports = import.meta.glob<{ default: ImageMetadata }>(
   "../images/home/*.jpeg",
   { eager: true },
 );
@@ -18,11 +18,11 @@ const images = Object.values(imageImports);
             src={image.default}
             alt={`Home Image ${index}`}
             width={1200}
-            height={675}
+            height={720}
             format="webp"
             loading={index === 0 ? "eager" : "lazy"}
             style="width:100%;height:100%;object-fit:cover;object-position:center;filter:grayscale(100%) contrast(1.1);"
-            quality={70}
+            quality={80}
           />
         </div>
       ))
